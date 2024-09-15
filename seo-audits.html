@@ -59,4 +59,143 @@
             padding: 40px;
             margin: 30px auto;
             max-width: 1200px;
-            box-shadow: 0 4px 12
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #4A90E2;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h3 {
+            color: #357ABD;
+        }
+
+        /* Softer Buttons */
+        a.button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #357ABD;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        a.button:hover {
+            background-color: #285680;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #357ABD;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer p {
+            color: #f1f1f1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                margin: 10px;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .content-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="seo-audits.html">SEO Audits</a></li>
+        <li><a href="content-writing.html">Content Writing</a></li>
+        <li><a href="digital-marketing.html">Digital Marketing</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Content Box Section -->
+    <div class="content-box">
+        <header>
+            <h1>SEO Audits</h1>
+            <p>I provide comprehensive SEO audits designed to identify critical issues on your website and offer actionable recommendations to improve your search engine rankings and overall performance.</p>
+        </header>
+    </div>
+
+    <div class="content-box">
+        <!-- What's Included Section -->
+        <section id="seo-audit-details">
+            <h2>What's Included in an SEO Audit</h2>
+            <ul>
+                <li><strong>Technical SEO Analysis:</strong> Website speed, mobile-friendliness, and crawlability checks.</li>
+                <li><strong>On-Page SEO Review:</strong> Title tags, meta descriptions, content structure, and keyword optimization.</li>
+                <li><strong>Off-Page SEO & Backlink Analysis:</strong> Review of your backlink profile and opportunities for improvement.</li>
+                <li><strong>Keyword Research:</strong> Insights into current rankings and opportunities for new keywords.</li>
+                <li><strong>Content Analysis:</strong> Recommendations for improving content quality and relevance.</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="content-box">
+        <!-- Pricing Section -->
+        <section id="pricing">
+            <h2>Pricing Options</h2>
+            <p><strong>Basic Audit:</strong> $300+ <br> High-level analysis of technical SEO, on-page SEO, and keyword research.</p>
+            <p><strong>Comprehensive Audit:</strong> $600+ <br> Full audit covering technical, on-page, off-page SEO, content, and keyword strategies.</p>
+        </section>
+    </div>
+
+    <div class="content-box">
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Ready to Improve Your SEO?</h2>
+            <p>If you're ready to enhance your website's performance and search rankings, contact me to schedule an SEO audit today.</p>
+            <p>Email: <a href="mailto:druviantllc@gmail.com">druviantllc@gmail.com</a></p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Druviant LLC | Managed by Travis Dunn</p>
+        <p><a href="mailto:druviantllc@gmail.com">Contact Us: druviantllc@gmail.com</a></p>
+        <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+    </footer>
+
+</body>
+</html>
