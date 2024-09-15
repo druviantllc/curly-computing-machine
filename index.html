@@ -53,13 +53,20 @@
             text-decoration: underline;
         }
 
-        .content-container {
+        /* Box-style for content sections */
+        .content-box {
             background-color: white;
             padding: 40px;
             margin: 30px auto;
             max-width: 1200px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
 
         h1, h2 {
@@ -106,8 +113,8 @@
       </ul>
     </nav>
 
-    <!-- Content Container -->
-    <div class="content-container">
+    <!-- Content Box Section -->
+    <div class="content-box">
         <h1>Terms of Service</h1>
         <p>By using Druviant LLC's website, you agree to the following terms and conditions:</p>
 
@@ -130,7 +137,7 @@
         <p>These terms are governed by the laws of [Your Country/State], and any disputes will be resolved in accordance with these laws.</p>
 
         <p>If you have any questions about these terms, please contact us at <a href="mailto:druviantllc@gmail.com">druviantllc@gmail.com</a>.</p>
-    </div> <!-- End of Content Container -->
+    </div> <!-- End of Content Box Section -->
 
     <!-- Footer -->
     <footer>
