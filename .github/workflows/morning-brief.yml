@@ -1,0 +1,44 @@
+name: Morning brief
+
+on:
+  schedule:
+    # Runs every day at 12:00 UTC, which is morning in the United States.
+    # Set BRIEF_TIMEZONE below so "today" is calculated in your local timezone.
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  send-brief:
+    runs-on: ubuntu-latest
+    env:
+      BRIEF_TIMEZONE: America/New_York
+      BRIEF_RECIPIENT_EMAIL: ${{ secrets.BRIEF_RECIPIENT_EMAIL }}
+      GMAIL_SENDER_EMAIL: ${{ secrets.GMAIL_SENDER_EMAIL }}
+      GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+      GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+      GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+      GOOGLE_CALENDAR_IDS: ${{ vars.GOOGLE_CALENDAR_IDS || 'primary' }}
+      GMAIL_BRIEF_QUERY: ${{ vars.GMAIL_BRIEF_QUERY || 'in:inbox is:unread (is:important OR category:primary) newer_than:14d' }}
+      GOOGLE_DRIVE_BRIEF_QUERY: ${{ vars.GOOGLE_DRIVE_BRIEF_QUERY || 'starred = true and trashed = false' }}
+      GITHUB_OWNER: ${{ github.repository_owner }}
+      GITHUB_REPO: ${{ github.event.repository.name }}
+      GITHUB_USERNAME: ${{ vars.GH_BRIEF_USERNAME }}
+      GH_TOKEN: ${{ secrets.GH_BRIEF_TOKEN || github.token }}
+      AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+      AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+      AIRTABLE_TABLE_NAME: ${{ vars.AIRTABLE_TABLE_NAME }}
+      AIRTABLE_VIEW_NAME: ${{ vars.AIRTABLE_VIEW_NAME }}
+      AIRTABLE_DUE_FIELD: ${{ vars.AIRTABLE_DUE_FIELD || 'Due Date' }}
+      AIRTABLE_STATUS_FIELD: ${{ vars.AIRTABLE_STATUS_FIELD || 'Status' }}
+      AIRTABLE_DONE_STATUSES: ${{ vars.AIRTABLE_DONE_STATUSES || 'Done,Complete,Completed' }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Send morning brief
+        run: python3 scripts/morning_brief.py
